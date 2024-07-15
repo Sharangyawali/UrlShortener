@@ -5,12 +5,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const GenerateShortUrl = () => {
   const [url,setUrl]=useState('')
-  const urlRegx=/^http:\/\/localhost:3000\/.+/i
+  const urlRegx=/^https?:\/\/.+/i
     const [shortUrl,setShortUrl]=useState()
 
     const request=async()=>{
       if(!urlRegx.test(url)){
-        toast.error('URL must start with http://localhost:3000/',{
+        toast.error('URL must start with http:// or https://',{
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,

@@ -5,12 +5,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const GetActualUrl = () => {
     const [url,setUrl]=useState()
-    const urlRegx=/^http:\/\/localhost:3000\/shortenedUrl\/.+/i
+    const urlRegx=/^https?:\/\/.+/i
       const [shortUrl,setShortUrl]=useState('')
   
       const request=async()=>{
         if(!urlRegx.test(shortUrl)){
-          toast.error('Shortened URL must start with http://localhost:3000/shortenedUrl/',{
+          toast.error('Shortened URL must start with http:// or https://',{
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -18,7 +18,7 @@ export const GetActualUrl = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "light",
+            theme: "dark",
             })
         }
         else{
@@ -47,7 +47,7 @@ export const GetActualUrl = () => {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              theme: "light",
+              theme: "dark",
               })
           }
         }

@@ -23,7 +23,6 @@ export const Login = () => {
       setLoading(true);
       let result = await fetch(`${process.env.REACT_APP_API_URL}auth/login`, {
         method: "post",
-        credentials: 'include',
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
       });

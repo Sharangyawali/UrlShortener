@@ -1,15 +1,23 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ShortUrlDto, UrlDto } from './dto/url-dto';
 import { PrismaDbService } from 'src/prisma-db/prisma-db.service';
-import {v4 as uuidv4} from 'uuid'
 
 
 @Injectable()
 export class UrlshortnerService {
     constructor(private prismaService:PrismaDbService){}
+
+     generateUID():string{
+        let firstPart:number = (Math.random() * 46656) | 0;
+        let secondPart:number = (Math.random() * 46656) | 0;
+        let firstPartString:string = ("000" + firstPart.toString(36)).slice(-3);
+        let secondPartString:string = ("000" + secondPart.toString(36)).slice(-3);
+        return firstPartString + secondPartString;
+    }
+
     async generateSHortUser(id:string,url:UrlDto['url']){
-        let myuuid = uuidv4();
-        let shortenedUrl=`http://localhost:3000/shortenedUrl/${myuuid}`
+        let myuuid = this.generateUID();
+        let shortenedUrl=`http://localhost:3000/${myuuid}`
         try {
             await this.prismaService.shortened.create({
                 data:{

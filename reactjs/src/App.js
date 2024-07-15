@@ -10,6 +10,7 @@ import ProtectedComponent from './Components/PrivateComponent/ProtectedComponent
 import AuthComponent from './Components/PrivateComponent/AuthComponent';
 import { TopBarLayout } from './Layout/TopBarLayout';
 import { GetActualUrl } from './Routes/GetActualUrl';
+import { ShortenedUrl } from './Routes/ShortenedUrl';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
 
         <Route path='/generate-short-url' element={<GenerateShortUrl/>}></Route>
         <Route path='/get-actual-url' element={<GetActualUrl/>}></Route>
+        <Route path='/:id' element={<ShortenedUrl/>}></Route>
         </Route>
         </Route>
       </Route>
