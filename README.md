@@ -18,6 +18,7 @@ This project is an authenticated URL shortener built using Nest.js for the backe
 
 - **Backend:** Nest.js
 - **Frontend:** React
+- **Database:** Prisma (Postgres)
 - **Authentication:** JWT
 
 ## Getting Started
@@ -35,12 +36,14 @@ This project is an authenticated URL shortener built using Nest.js for the backe
     git clone https://github.com/Sharangyawali/UrlShortener.git
     cd UrlShortener
     ```
+    
 2. Change directory to nestjs:
 
     ```bash
     cd nestjs
     npm install
     ```
+
 3. Set up nestjs environment variables :
 
     Create a `.env` file in the root directory and add the following variables:
@@ -49,13 +52,26 @@ This project is an authenticated URL shortener built using Nest.js for the backe
     DATABASE_URL=your_database_url
     JWT_SECRET_KEY=your_jwt_secret
     ```
-4. Start the backend server:
+
+4. Generate Prisma client:
+
+    ```bash
+    npx prisma generate
+    ```
+
+5. Run Prisma migrations to set up the database schema:
+
+    ```bash
+    npx prisma migrate dev
+    ```
+
+6. Start the backend server:
 
     ```bash
     npm run start:dev
     ```
 
-4. Change directory to reactjs:
+7. Change directory to reactjs:
 
     ```bash
     cd ..
@@ -63,14 +79,15 @@ This project is an authenticated URL shortener built using Nest.js for the backe
     npm install
     ```
 
-5. Set up reactjs environment variables :
+8. Set up reactjs environment variables :
 
     Create a `.env` file in the root directory and add the following variables:
 
     ```env
     REACT_APP_API_URL= http://localhost:4001/api/
     ```
-6. Start the frontend:
+
+9. Start the frontend:
     ```bash
     npm start
     ```
