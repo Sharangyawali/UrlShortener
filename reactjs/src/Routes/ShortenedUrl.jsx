@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { CircularProgress } from '@mui/joy'
 
 export const ShortenedUrl = () => {
@@ -53,6 +53,7 @@ export const ShortenedUrl = () => {
         ) : ''
   
     }
+    <ToastContainer/>
     </>
   )
 }
