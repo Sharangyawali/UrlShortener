@@ -16,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
+        <Route path='/:id' element={<ShortenedUrl/>}></Route>
       <Route element={<Layout/>}>
         <Route path='/' element={<HomePage/>}></Route>
         <Route element={<ProtectedComponent/>}>
@@ -23,7 +24,6 @@ function App() {
 
         <Route path='/generate-short-url' element={<GenerateShortUrl/>}></Route>
         <Route path='/get-actual-url' element={<GetActualUrl/>}></Route>
-        <Route path='/:id' element={<ShortenedUrl/>}></Route>
         </Route>
         </Route>
       </Route>

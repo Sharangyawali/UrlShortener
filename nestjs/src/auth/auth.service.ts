@@ -27,11 +27,11 @@ export class AuthService {
       },
     });
     if (!user)
-     return null
+      throw new HttpException({success:false,message:'Account does not exists'},HttpStatus.UNAUTHORIZED);
     const match= await bcrypt.compare(password, user.password);
     if(match===true)
       return user
-    else return null
+    else  throw new HttpException({success:false,message:'Please enter correct details'},HttpStatus.UNAUTHORIZED)
   }
 
   async createUser(detail: Prisma.UserCreateInput) {
